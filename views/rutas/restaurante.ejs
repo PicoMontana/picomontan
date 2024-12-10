@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restaurantes</title>
+    <link rel="stylesheet" href="/css/menu.css">
+    <link rel="stylesheet" href="/css/restaurante.css">
+    <link rel="stylesheet" href="/css/comentarios.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+          .star {
+              color: gold; /* Color de las estrellas */
+              font-size: 16px; /* Ajuste del tamaño de las estrellas */
+          }
+    </style>
+</head>
+  <div class="navbar">
+    <div class="menu">
+      <nav>
+        <aside class="sidebar">
+          <div class="logo">
+            <img src="/img/logopm.png" alt="logo">
+            <h2>Bienvenido</h2>
+          </div>
+          <ul class="links">
+            <li>
+              <a href="/usuario/user">Inicio</a>
+            </li>
+            <li>
+              <img src="/img/Explora.png" alt="dashboard">
+              <a href="/quienesomos">Explora</a>
+            </li>
+            <li>
+              <img src="/img/prom.png" alt="show_chart">
+              <a href="/produc1">Promociones</a>
+            </li>
+            <hr>
+            <h4>Para ti</h4>
+            <li>
+              <img src="/img/ventas.png" alt="show_chart">
+              <a href="/prom">Productos</a>
+            </li>
+            <li>
+              <img src=" /img/agencia-de-viajes.png " alt="persona ">
+              <a href="/Agent ">Agencias</a>
+            </li>
+            <li>
+              <img src="/img/hotel.png " alt="group ">
+              <a href="/Hotel">Hoteles</a>
+            </li>
+            <li>
+              <img src="/img/plato.png " alt="ambient_screen ">
+              <a href="/restaurante">Restaurantes</a>
+            </li>
+            <hr>
+            <h4>Cuenta</h4>
+            <li>
+              <img src="/img/usuario.png " alt="mail ">
+              <a href="/usuario/profile">Perfil</a>
+            </li>
+            <li>
+              <img src="/img/correo-de-contacto.png" alt="dashboard">
+              <a href="/Contac">Contatenos</a>
+            </li>
+            <li>
+              <img src="/img/sobren.png" alt="dashboard">
+              <a href="/privacidad">Sobre Nosotros</a>
+            </li>
+            <li class="logout-link ">
+              <img src="/img/icons8-cerrar-sesi+¦n-50.png" alt="logout ">
+              <a href="/">Cerrar sesion</a>
+            </li>
+          </ul>
+        </aside>
+      </nav>
+    </div>
+  </div>
+<body>
+
+    <div class="fondo">
+      <div class="text">
+        <h2>Restaurantes</h2>
+        <p>¿Sabías que tu alimentación puede transformar tu vida? Descubre cómo pequeñas decisiones en tus comidas pueden marcar una gran diferencia en tu salud y bienestar.</p>
+    </div>
+
+    <header>
+        <h1>¡Descubre Los Mejores Restaurantes!</h1>
+        <div class="container">
+            <div class="filter">
+                <label for="stars-filter"><p>Visualiza los mejores restaurantes por categorias:</p></label>
+                <button class="star-filter" data-stars="0">Todos</button>
+                <button class="star-filter" data-stars="1">1 estrella</button>
+                <button class="star-filter" data-stars="2">2 estrellas</button>
+                <button class="star-filter" data-stars="3">3 estrellas</button>
+                <button class="star-filter" data-stars="4">4 estrellas</button>
+                <button class="star-filter" data-stars="5">5 estrellas</button>
+
+
+                <div class="card" data-stars="5">
+                    <div class="product-card">
+                        <h2>Restaurante Churrasco</h2>
+                        <div class="slideshow-container">
+                          <div class="mySlides fade">
+                            <img src="/img/restauran3.png" alt="Producto 2">
+                          </div>
+                          <div class="mySlides fade">
+                            <img src="/img/restauran2.jfif" alt="Producto 3">
+                          </div>
+                          <div class="mySlides fade">
+                            <img src="/img/restauran1.jfif" alt="Producto 4">
+                          </div>
+                        </div>
+                        <div class="rating-favorites">
+                        <div class="rating">
+                          <span class="star">&#9733;</span>
+                          <span class="star">&#9733;</span>
+                          <span class="star">&#9733;</span>
+                          <span class="star">&#9733;</span>
+                          <span class="star">&#9734;</span>
+                        </div>
+                        <div class="icon-right">
+                          <button class="add-to-favorites">
+                            <img src="/img/favorito.png" style="width: 20px; height: 20px;" alt="Agregar a favoritos">
+                          </button>
+                        </div>
+                      </div>
+                        <p>Ibague Tolima</p>
+                        <button class="mi-boton" onclick="window.open('/index3')">Reservar Ahora</button>
+                    </div>
+                </div>
+
+                <div class="card" data-stars="4">
+                    <div class="product-card">
+                        <h2>Restaurante Felo</h2>
+                        <div class="slideshow-container">
+                          <div class="mySlides fade">
+                            <img src="/img/restauran6.jfif" alt="Producto 1">
+                          </div>
+                          <div class="mySlides fade">
+                            <img src="/img/restauran5.jfif" alt="Producto 2">
+                          </div>
+                          <div class="mySlides fade">
+                            <img src="/img/restauran4.jfif" alt="Producto 3">
+                          </div>
+                        </div>
+                        <div class="rating-favorites">
+                        <div class="rating">
+                          <span class="star">&#9733;</span>
+                          <span class="star">&#9733;</span>
+                          <span class="star">&#9733;</span>
+                          <span class="star">&#9733;</span>
+                          <span class="star">&#9734;</span>
+                        </div>
+                        <div class="icon-right">
+                          <button class="add-to-favorites">
+                            <img src="/img/favorito.png" style="width: 20px; height: 20px;" alt="Agregar a favoritos">
+                          </button>
+                        </div>
+                      </div>
+                        <p>Ibague Tolima</p>
+                        <button class="mi-boton" onclick="window.open('/index3')">Reservar Ahora</button>
+                    </div>
+
+                    <div class="product-card">
+                        <h2>Don Pedro Restaurante</h2>
+                        <div class="slideshow-container">
+                          <div class="mySlides fade">
+                            <img src="/img/restauran7.jfif" alt="Producto 1">
+                          </div>
+                          <div class="mySlides fade">
+                            <img src="/img/restauran8.jfif" alt="Producto 2">
+                          </div>
+                          <div class="mySlides fade">
+                            <img src="/img/pazrestaurante.jpg" alt="Producto 3">
+                          </div>
+                        </div>
+                        <div class="rating-favorites">
+                        <div class="rating">
+                          <span class="star">&#9733;</span>
+                          <span class="star">&#9733;</span>
+                          <span class="star">&#9733;</span>
+                          <span class="star">&#9733;</span>
+                          <span class="star">&#9733;</span>
+                        </div>
+                        <div class="icon-right">
+                          <button class="add-to-favorites">
+                            <img src="/img/favorito.png" style="width: 20px; height: 20px;" alt="Agregar a favoritos">
+                          </button>
+                        </div>
+                      </div>
+                        <p>Ibague Tolima</p>
+                        <button class="mi-boton" onclick="window.open('/index3')">Reservar Ahora</button>
+                    </div>
+
+                    <div class="product-card">
+                        <h2>Embajada China</h2>
+                        <div class="slideshow-container">
+                          <div class="mySlides fade">
+                            <img src="/img/restauran9.jfif" alt="Producto 1">
+                          </div>
+                          <div class="mySlides fade">
+                            <img src="/img/restauran0.png" alt="Producto 2">
+                          </div>
+                          <div class="mySlides fade">
+                            <img src="/img/restaurante.avif" alt="Producto 3">
+                          </div>
+                        </div>
+                        <div class="rating-favorites">
+                        <div class="rating">
+                          <span class="star">&#9733;</span>
+                          <span class="star">&#9733;</span>
+                          <span class="star">&#9733;</span>
+                          <span class="star">&#9733;</span>
+                          <span class="star">&#9733;</span>
+                        </div>
+                        <div class="icon-right">
+                          <button class="add-to-favorites">
+                            <img src="/img/favorito.png" style="width: 20px; height: 20px;" alt="Agregar a favoritos">
+                          </button>
+                        </div>
+                      </div>
+                        <p>Ibague Tolima</p>
+                      <button class="reserve-button">Reservar</button>
+                    </div>
+                </div> 
+
+                <div class="card" data-stars="3">
+
+                  <div class="product-card">
+                    <h2>La Fogata Restaurante</h2>
+                    <div class="slideshow-container">
+                      <div class="mySlides fade">
+                        <img src="/img/restaurante03.jfif" alt="Producto 1">
+                      </div>
+                      <div class="mySlides fade">
+                        <img src="/img/restaurante02.jfif" alt="Producto 2">
+                      </div>
+                      <div class="mySlides fade">
+                        <img src="/img/restaurante01.jfif" alt="Producto 3">
+                      </div>
+                    </div>
+                    <div class="rating-favorites">
+                    <div class="rating">
+                      <span class="star">&#9733;</span>
+                      <span class="star">&#9733;</span>
+                      <span class="star">&#9733;</span>
+                      <span class="star">&#9733;</span>
+                      <span class="star">&#9734;</span>
+                    </div>
+                    <div class="icon-right">
+                      <button class="add-to-favorites">
+                        <img src="/img/favorito.png" style="width: 20px; height: 20px;" alt="Agregar a favoritos">
+                      </button>
+                    </div>
+                  </div>
+                    <p>Ibague Tolima</p>
+                    <button class="mi-boton" onclick="window.open('/index3')">Reservar Ahora</button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+      <h1>Caja de comentarios, Foros y Sugerencias</h1>
+      <div class="comment-section">
+          <h2>Comentarios y Sugerencias</h2>
+          <div id="comments"></div>
+          <div class="comment-form">
+              <textarea id="commentInput" placeholder="Escribe un comentario..."></textarea>
+              <select id="categorySelect">
+                  <option value="">Selecciona tu tipo de Sugerencias</option>
+                  <option value="General">General</option>
+                  <option value="Sugerencias">Sugerencias</option>
+                  <option value="Preguntas">Preguntas</option>
+              </select>
+              <div class="rating">
+                  <span>Calificación: </span>
+                  <span class="star" onclick="setRating(1)">&#9733;</span>
+                  <span class="star" onclick="setRating(2)">&#9733;</span>
+                  <span class="star" onclick="setRating(3)">&#9733;</span>
+                  <span class="star" onclick="setRating(4)">&#9733;</span>
+                  <span class="star" onclick="setRating(5)">&#9733;</span>
+                  <input type="hidden" id="ratingInput" value="0">
+              </div>
+              <button onclick="submitComment()">Enviar Comentario</button>
+          </div>
+      </div>
+      
+      <div class="section" id="contact">
+        <h2>Contáctanos</h2>
+        <div class="contact">
+            <a href="https://wa.me/1234567890" target="_blank"><i class="fab fa-whatsapp"></i></a>
+            <!-- Ícono de WhatsApp -->
+            <a href="https://www.facebook.com/tu_pagina" target="_blank"><i class="fab fa-facebook-f"></i></a>
+            <!-- Ícono de Facebook -->
+            <a href="mailto:tuemail@ejemplo.com"><i class="fas fa-envelope"></i></a> <!-- Ícono de Email -->
+        </div>
+      </div>
+
+    <!--script comentarios-->
+    <script>
+    let comments = [];
+    let currentRating = 0;
+
+    function setRating(rating) {
+        currentRating = rating;
+        const stars = document.querySelectorAll('.star');
+        stars.forEach((star, index) => {
+            star.classList.toggle('selected', index < rating);
+        });
+        document.getElementById('ratingInput').value = rating;
+    }
+
+    function submitComment() {
+        const commentInput = document.getElementById('commentInput');
+        const categorySelect = document.getElementById('categorySelect');
+        const commentText = commentInput.value.trim();
+        const category = categorySelect.value;
+        const rating = currentRating;
+
+        if (commentText) {
+            const comment = {
+                id: comments.length + 1,
+                text: commentText,
+                category: category,
+                rating: rating,
+                replies: []
+            };
+            comments.push(comment);
+            commentInput.value = '';
+            categorySelect.value = '';
+            currentRating = 0;
+            setRating(0);
+            renderComments();
+        }
+    }
+
+    function renderComments() {
+        const commentsContainer = document.getElementById('comments');
+        commentsContainer.innerHTML = '';
+
+        comments.forEach(comment => {
+            const commentDiv = document.createElement('div');
+            commentDiv.className = 'comment';
+            commentDiv.innerHTML = `
+                <p><strong>${comment.category}</strong> - Calificación: ${'★'.repeat(comment.rating)}${'☆'.repeat(5 - comment.rating)}</p>
+                <p>${comment.text}</p>
+                <button onclick="showReplyForm(${comment.id})">Responder</button>
+                <div class="reply-form" id="reply-form-${comment.id}">
+                    <textarea placeholder="Escribe una respuesta..."></textarea>
+                    <button onclick="submitReply(${comment.id})">Enviar Respuesta</button>
+                </div>
+                <div class="replies" id="replies-${comment.id}"></div>
+            `;
+            commentsContainer.appendChild(commentDiv);
+
+            // Renderizar respuestas
+            comment.replies.forEach(reply => {
+                const replyDiv = document.createElement('div');
+                replyDiv.className = 'reply';
+                replyDiv.innerHTML = `<p>${reply.text}</p>`;
+                document.getElementById(`replies-${comment.id}`).appendChild(replyDiv);
+            });
+        });
+    }
+
+    function showReplyForm(commentId) {
+        const replyForm = document.getElementById(`reply-form-${commentId}`);
+        replyForm.style.display = replyForm.style.display === 'block' ? 'none' : 'block';
+    }
+
+    function submitReply(parentId) {
+        const replyTextarea = document.querySelector(`#reply-form-${parentId} textarea`);
+        const replyText = replyTextarea.value.trim();
+
+        if (replyText) {
+            const parentComment = comments.find(comment => comment.id === parentId);
+            const reply = {
+                id: parentComment.replies.length + 1,
+                text: replyText
+            };
+            parentComment.replies.push(reply);
+            replyTextarea.value = '';
+            renderComments();
+        }
+    }
+    </script>
+    <!--script cambiar Img y fv-->
+    <script>
+    let slideIndices = {};
+    let slideTimeouts = {};
+    
+    function showSlides(slideshowContainer) {
+      let slides = slideshowContainer.querySelectorAll('.mySlides');
+      let slideIndex = slideIndices[slideshowContainer] || 0;
+      for (let i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+      }
+      slideIndex++;
+      if (slideIndex > slides.length) {
+        slideIndex = 1;
+      }
+      slides[slideIndex - 1].style.display = "block";
+      slideIndices[slideshowContainer] = slideIndex;
+      slideTimeouts[slideshowContainer] = setTimeout(() => showSlides(slideshowContainer), 2000); // Cambia la imagen cada 3 segundos
+    }
+    
+    function startSlideshow(slideshowContainer) {
+      if (!slideTimeouts[slideshowContainer]) {
+        showSlides(slideshowContainer);
+      }
+    }
+    
+    function stopSlideshow(slideshowContainer) {
+      clearTimeout(slideTimeouts[slideshowContainer]);
+      slideTimeouts[slideshowContainer] = null;
+    }
+    
+    document.addEventListener('DOMContentLoaded', () => {
+      document.querySelectorAll('.slideshow-container').forEach(container => {
+        let slides = container.querySelectorAll('.mySlides');
+        if (slides.length > 0) {
+          slides[0].style.display = "block";
+        }
+    
+        container.parentElement.addEventListener('mouseenter', () => startSlideshow(container));
+        container.parentElement.addEventListener('mouseleave', () => stopSlideshow(container));
+      });
+    });
+    //favoritos
+    
+    document.addEventListener('DOMContentLoaded', function () {
+        const favoriteButtons = document.querySelectorAll('.add-to-favorites');
+    
+        favoriteButtons.forEach(button => {
+            button.addEventListener('click', function () {
+                const productCard = button.closest('.product-czzard');
+                const productId = productCard.getAttribute('data-id');
+                const productInfo = {
+                    id: productId,
+                    imgSrc: productCard.querySelector('img').getAttribute('src'),
+                    title: productCard.querySelector('h2').innerText,
+                    description: productCard.querySelector('p').innerText,
+                    price: productCard.querySelector('.price p').innerText, // Este campo no existe en tu HTML, verifica si necesitas eliminarlo o agregarlo.
+                };
+    
+                // Retrieve favorites from local storage or initialize an empty array
+                let favorites = JSON.parse(localStorage.getItem('favorites')) || [];
+    
+                // Add the current product to the favorites
+                favorites.push(productInfo);
+    
+                // Save the updated favorites back to local storage
+                localStorage.setItem('favorites', JSON.stringify(favorites));
+    
+                alert('Añadido a favoritos!');
+            });
+        });
+    });    
+    </script>
+    <!--script Filtrar estrellas-->
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+      var starFilters = document.querySelectorAll(".star-filter");
+      var cards = document.querySelectorAll(".card");
+
+      starFilters.forEach(button => {
+        button.addEventListener('click', () => {
+          const selectedStars = parseInt(button.dataset.stars);
+
+          cards.forEach(function(card) {
+            var stars = parseInt(card.getAttribute("data-stars"));
+            if (selectedStars === 0 || stars === selectedStars) {
+              card.style.display = "block";
+            } else {
+              card.style.display = "none";
+            }
+          });
+        });
+      });
+    });
+    </script>
+
+</body>
+</html>

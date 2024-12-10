@@ -1,0 +1,181 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url(/img/fondologin.jpg);
+    background-repeat: no-repeat; /* Evita que la imagen se repita */
+    background-size: cover; /* Ajusta la imagen para que cubra todo el fondo */
+    background-position: center; /* Centra la imagen en el fondo */
+    height: 100vh; /* 100% de la altura de la ventana de visualización */
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+
+.container-login {
+  width: 30%;
+  background-color: rgba(173, 171, 201, 0.3); /* Mismo color que .container-login */
+  padding: 20px;
+  border-radius: 10px;
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+}
+.container-login label {
+  font-size: 17px; /* Tamaño de fuente */
+  color: white; /* Color del texto */
+}
+
+.container-login label,
+.container-login input,
+.container-login button
+ {
+  margin-bottom: 10px;
+  width: 100%;
+  padding: 10px;
+  box-sizing: border-box;
+  border-radius: 12px;
+
+}
+.container-login #h2
+{
+  width: 100%;
+  top: 0;
+  text-align: center;
+  color: white;
+  border-radius:100;
+
+}
+
+.container-login button {
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.error-message {
+  color: red;
+  margin-bottom: 10px;
+  display: none;
+
+}
+
+.registro-enlace {
+  color: white; /* Hereda el color del elemento padre */
+  text-decoration: none; /* Elimina el subrayado */
+  font-weight: bold; /* O cualquier otro estilo que prefieras */
+}
+
+/* Opcional: Cambiar el color al pasar el ratón por encima */
+.registro-enlace:hover {
+  color: #4caf50; /* Cambia a tu color preferido */
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 30%; /* Igual que .container-login */
+  background-color: rgba(173, 171, 201, 0.3); /* Mismo color que .container-login */
+  padding: 20px;
+  border-radius: 10px; /* Mismas esquinas redondeadas */
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  max-height: 80vh; /* Limita la altura del modal al 80% del viewport height */
+  overflow-y: auto; /* Añade desplazamiento vertical si el contenido es demasiado largo */
+}
+
+/* Estilo para oscurecer el fondo cuando el modal está abierto */
+.modal-fondo {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 0;
+}
+
+/* Estilo para los campos de entrada en el modal */
+.modal input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  box-sizing: border-box;
+  border-radius: 12px;
+}
+
+/* Estilo para las etiquetas en el modal */
+.modal label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: bold;
+}
+
+/* Estilo para el botón en el modal */
+.modal button {
+  background-color: #4caf50;
+  color: #fff;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+/* Estilo para el botón de cerrar en el modal */
+.modal .close-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+  font-size: 18px;
+}
+
+/* Cambia el color de fondo del botón cuando se pasa el ratón sobre él */
+.modal button:hover, .modal .close-btn:hover {
+  background-color: #45a049;
+}
+
+/* select    */
+
+/* Estilo para los campos de entrada y los select */
+.form-group {
+  margin-bottom: 10px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.form-group input,
+.form-group select {
+  width: 100%;
+  padding: 10px;
+  box-sizing: border-box;
+  border-radius: 12px;
+  border: 1px solid #ccc;
+}
+
+/* Estilo para el botón */
+.modal-content button {
+  width: 100%;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  padding: 10px;
+  box-sizing: border-box;
+  border-radius: 10px;
+}
+
+.modal-content button:hover {
+  background-color: #45a049;
+}

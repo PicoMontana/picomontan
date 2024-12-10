@@ -1,0 +1,245 @@
+
+.fondo {
+    background-image: url('/img/fondobarra.jpg');
+    background-size: cover;
+    padding-top: 50px;
+}
+    
+body  h2 p {
+  font-family: Times New Roman;
+  text-align: center;
+  font-size: 8px; /* Tamaño de fuente normal */
+}
+.text {
+    position: relative;
+    z-index: 10;
+    margin-left: 250px;
+}
+
+.text h2 {
+  margin-top: 50px;
+    font-size: 3em;
+    font-weight: 800;
+    color: black;
+    line-height: 1em;
+    text-transform: uppercase;
+}
+
+.text p {
+    font-size: 1.1em;
+    color: black;
+    margin: 20px 0;
+    font-weight: 400;
+    max-width: 1200px;
+}
+
+.text a {
+    display: inline-block;
+    font-size: 1em;
+    background: #fff;
+    padding: 10px 30px;
+    text-transform: uppercase;
+    text-decoration: none;
+    font-weight: 500;
+    margin-top: 10px;
+    color: #111;
+    letter-spacing: 2px;
+    transition: 0.2s;
+}
+
+.text a:hover {
+    letter-spacing: 6px;
+}
+
+.btn-verde {
+    border: 2px solid rgb(253, 254, 255); /* Borde verde */
+    background-color: rgb(96, 236, 96); /* Fondo verde */
+    color: white; /* Texto blanco */
+    padding: 10px 20px; /* Espaciado interno */
+    border-radius: 5px; /* Bordes redondeados */
+    cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
+    transition: background-color 0.3s, border-color 0.3s; /* Transición suave */
+}
+
+.search-bar {
+    display: flex;
+    align-items: center;
+    background-color: #f2d9e6; /* Rosadito */
+    border-radius: 20px;
+    padding: 5px;
+    width: 800px; /* Ancho más pequeño */
+    margin-left: 800px;
+    margin-top: 100px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  
+  
+  .search-bar input {
+    border: none;
+    outline: none;
+    background: none;
+    flex: 1;
+    padding: 5px;
+    border-radius: 20px;
+  }
+  
+  .search-bar button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 5px;
+    color: #dd1515;
+  }
+  
+
+  
+/* Estilo al pasar el cursor */
+.btn-verde:hover {
+    background-color: skyblue; /* Fondo azul cielo al pasar el cursor */
+    border-color: skyblue; /* Borde azul cielo al pasar el cursor */
+}
+
+.menu {
+    text-align: center;
+}
+
+.texto-contenedor {
+    margin-top: 50px; /* Ajusta este valor según sea necesario */
+}
+
+/* CSS para la galería de imágenes */
+.slideshow-container {
+    position: relative;
+    width: 100%;
+    height: 200px; /* Ajusta la altura de la galería según tus necesidades */
+    overflow: hidden;
+  }
+  
+  .mySlides {
+    display: none;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+  }
+
+  /* Resto del CSS para las tarjetas y la sección de productos */
+  .product-section {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 30px; /* Ajusta este valor según sea necesario */
+  }
+  
+  .product-card {
+    position: relative; /* Esta posición para poder posicionar el texto de la clase "body" */
+    flex: 0 0 calc(30% - 10px); /* Ajustar el ancho para que tres tarjetas ocupen una fila */
+    width: calc(20% - 10px); /* Define el ancho exacto de las tarjetas */
+    height: 400px; /* Ajusta esta propiedad para cambiar la altura de las tarjetas */
+    overflow: hidden; /* Para poder ver el borde redondeado */
+    margin-right: 20px;
+    margin-bottom: 20px;
+    border-radius: 30px;
+    box-shadow: 2px 4px 12px rgba(124, 87, 87, 0.08);
+    background-color: rgb(56, 75, 71);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .product-section {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start; /* Asegura que las tarjetas se alineen a la izquierda */
+    margin-left: 300px; /* Ajusta este valor según necesites para mover las tarjetas */
+  }
+  
+  @media (max-width: 768px) {
+    .product-card {
+      flex: 0 0 calc(50% - 20px); /* 50% de ancho para cada tarjeta en pantallas más pequeñas */
+      width: calc(50% - 20px); /* Define el ancho exacto de las tarjetas para pantallas más pequeñas */
+      height: 300px; /* Ajusta esta propiedad para cambiar la altura de las tarjetas en pantallas más pequeñas */
+    }
+  }
+  
+  .product-card img {
+    max-width: 80%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+  }
+  
+ /* Estilos para las estrellas de calificación */
+.rating {
+  display: flex;
+}
+
+.star {
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.star:hover,
+.star.selected {
+  color: gold;
+}
+
+.reserve-button {
+  margin-top: 10px;
+}
+.icon-right {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding-right: 10px; /* Ajusta el padding según sea necesario */
+}
+
+  
+  .add-to-favorites {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0; /* Eliminar el padding para que solo se muestre el ícono */
+  }
+  
+  .reserve-button {
+    width: 100%;
+    margin-top: 10px; /* Añadir margen superior para separar del contenedor de calificación */
+    padding: 10px;
+    background-color: #e20075; /* Rosadito */
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+  }
+
+  .mi-boton {
+    width: 100%;
+    margin-top: 10px; /* Añadir margen superior para separar del contenedor de calificación */
+    padding: 10px;
+    background-color: #d4d104; /* Rosadito */
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+  }
+
+  .card {
+    background-color: #164646;
+    padding: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .content {
+    display: none;
+    overflow: hidden;
+    height: 0;
+    transition: all 0.5s ease-in-out;
+  }
+  
+  .card:hover .content {
+    display: block;
+    height: auto;
+  }
+  
+  

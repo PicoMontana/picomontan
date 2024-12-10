@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PRODUCTOS PM</title>
+  <link rel="stylesheet" href="/css/stylesProductos.css"> 
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+</head>
+<body>
+
+  <h1>Bienvenido a PICOMOMTAÑA: ADMINISTRADOR OFICIAL</h1>
+  <div class="container">
+    <img src="/img/logopm.png" alt="logo">
+    <h1>Creación Producto</h1>
+    <h3>En este apartado podras subir todo tipo de contenido o promoción para tu negocio</h3>
+    <form id="formProductos" class="form"  enctype="multipart/form-data">
+      <div class="form-group">
+        <label for="producto">Nombre:</label>
+        <input type="text" id="producto" name="producto" placeholder="Nombre Producto" required>
+      </div>
+      <div class="form-group">
+        <label for="descripcion">Descripción:</label>
+        <textarea id="descripcion" name="descripcion" placeholder="Ingrese la descripción"></textarea>
+      </div>
+      <div class="form-group">
+        <label for="precio">Precio:</label>
+        <input type="number"  id="precio" name="precio" placeholder="Ingrese el precio" required>
+      </div>
+      <div class="form-group">
+        <label for="qty">Cantidad:</label>
+        <input type="number" id="qty" name="qty" placeholder="Ingrese la cantidad" required>
+      </div>
+      <div class="form-group">
+        <label for="image">Imagen:</label>
+        <input type="file" id="image" name="image" required>
+      </div>
+      <button type="submit"  onclick="enviarRegistro()">Cargar Productos</button>
+      </form>
+    </div>
+  </div>
+
+  <a href="/index">volver</a>
+  <script src="/js/controlerProductos.js"></script>
+</body>
+</html>

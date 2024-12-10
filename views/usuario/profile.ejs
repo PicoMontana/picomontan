@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- link css -->
+    <link rel="stylesheet" href="/css/styleprofile.css">
+
+    <!-- link icon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.5/font/bootstrap-icons.min.css" integrity="sha512-ZnR2wlLbSbr8/c9AgLg3jQPAattCUImNsae6NHYnS9KrIwRdcY9DxFotXhNAKIKbAXlRnujIqUWoXXwqyFOeIQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Profile Card</title>
+</head>
+<body>
+    <div class="container">
+        <div class="box">
+            <header class="box_header">
+                <div class="icon">
+                    <i class="fa-solid fa-angle-left"></i>
+                </div>
+
+                <div class="yourFile">
+                    <p>Mi Perfil</p>
+                </div>
+
+                <div class="icon">
+                    <i class="fa-solid fa-ellipsis-vertical"></i>
+                </div>
+            </header>
+
+            <section class="box_info">
+                <div class="avatar">
+                    <img src="https://i.pinimg.com/originals/89/9d/ba/899dbae8d1a12e57a17feabced8ebe61.jpg" alt="" id="profilePic">
+                    <input type="file" name="" id="form_file" style="display: none;">
+                </div>
+            
+                <div class="info">
+                    <p class="nombre" id="nombredeusuario"></p>
+                  </div>
+                  
+
+                <label for="form_file" class="edit" id="editButton">
+                    <i class="fa-solid fa-pen-to-square"></i>
+                </label>
+            </section>
+
+            <aside class="box_content">
+                <section class="status">
+                    <span class="stt">Mi Estado</span>
+                    <div class="myStt">
+                        <div class="details active" data-section="historial">
+                            <img src="/img/historial.png" alt="Icono de historial">
+                            <span>Pedidos</span>
+                        </div>
+
+                        <div class="details" data-section="terminos">
+                            <img src="/img/terminos-y-condiciones.png" alt="Icono de términos y condiciones">
+                            <span>Términos y Condiciones</span>
+                        </div>
+                    </div>
+                </section>
+            
+                <section class="content" id="historial">
+                    <h2>Pedidos</h2>
+                    <!-- Contenido del historial -->
+                </section>
+            
+                <section class="content" id="terminos">
+                    <h2>Términos y Condiciones</h2>
+                    <!-- Contenido de términos y condiciones -->
+                </section>
+            </aside>
+
+
+    <!-- Modal para editar información -->
+    <div id="editModal" class="modal">
+        <div class="modal-content">
+            <span class="close-button" id="closeModal">&times;</span>
+            <h2>Editar Perfil</h2>
+            <form id="editProfileForm">
+                <label for="editName">Nombre:</label>
+                <input type="text" id="editName" name="editName">
+                <label for="editPassword">Contraseña:</label>
+                <input type="password" id="editPassword" name="editPassword">
+                <label for="editProfilePic">Foto de perfil:</label>
+                <input type="file" id="editProfilePic" name="editProfilePic">
+                <button type="submit">Guardar Cambios</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="/js/mainprofile.js"></script>
+</body>
+</html>

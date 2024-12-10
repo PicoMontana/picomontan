@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestión de Usuarios</title>
+</head>
+<body><div class="container">
+    <h2>Perfil de Usuario</h2>
+    <div id="message"></div>
+    <div class="form-group">
+        <button id="getProfileBtn" class="btn">Ver Perfil</button>
+        <button id="updateProfileBtn" class="btn">Actualizar Perfil</button>
+        <button id="deleteUserBtn" class="btn danger">Eliminar Cuenta</button>
+    </div>
+    <div class="form-group">
+        <button id="logoutBtn" class="btn">Cerrar Sesión</button>
+    </div>
+</div>
+
+<!-- Modal General -->
+<div id="modal" class="modal">
+    <div class="modal-content">
+        <span class="close-btn" id="closeModal">&times;</span>
+        <h3 id="modalTitle"></h3>
+        <div id="modalBody"></div>
+    </div>
+</div>
+
+<style>
+    /* Estilos generales */
+    body {
+        font-family: Arial, sans-serif;
+        background: linear-gradient(135deg, #74ebd5, #9face6);
+        color: #333;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }
+
+    .container {
+        background: white;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        width: 300px;
+        text-align: center;
+    }
+
+    .form-group {
+        margin-top: 20px;
+    }
+
+    .btn {
+        padding: 10px 20px;
+        margin: 5px;
+        border: none;
+        border-radius: 5px;
+        color: white;
+        background: #4CAF50;
+        cursor: pointer;
+    }
+
+    .btn:hover {
+        background: #45a049;
+    }
+
+    .btn.danger {
+        background: #f44336;
+    }
+
+    .btn.danger:hover {
+        background: #e53935;
+    }
+
+    /* Modal */
+    .modal {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.6);
+        justify-content: center;
+        align-items: center;
+        z-index: 1000;
+    }
+
+    .modal-content {
+        background: white;
+        padding: 20px;
+        border-radius: 8px;
+        width: 80%;
+        max-width: 400px;
+        text-align: center;
+        position: relative;
+    }
+
+    .close-btn {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        cursor: pointer;
+        color: red;
+        font-size: 20px;
+    }
+
+    .alert {
+        margin: 10px 0;
+        padding: 10px;
+        border-radius: 5px;
+    }
+
+    .alert.success {
+        background: #d4edda;
+        color: #155724;
+    }
+
+    .alert.error {
+        background: #f8d7da;
+        color: #721c24;
+    }
+</style>
+
+    <script>
+
+        document.getElementById('getProfileBtn').addEventListener('click', async () => {
+            const token = localStorage.getItem('token');
+            const response = await fetch('/perfil', {
+                method: 'GET',
+                headers: { 'Authorization': `Bearer ${token}` }
+            });
+
+            const user = await response.json();
+            if (response.ok) {
+                openModal(
+                    'Información del Perfil',
+                    `<strong>ID:</strong> ${user.id}<br>
+                    <strong>Nombre:</strong> ${user.name}<br>
+                    <strong>Usuario:</strong> ${user.username}<br>
+                    <strong>Correo:</strong> ${user.email}`
+                );
+            } else {
+                showAlert(user.error, 'error');
+            }
+        });
+
+        document.getElementById('updateProfileBtn').addEventListener('click', async () => {
+            openModal(
+                'Actualizar Perfil',
+                `<form id="updateForm">
+                    <label>Nuevo Nombre:</label><br>
+                    <input type="text" id="newName" placeholder="Nuevo Nombre"><br><br>
+                    <label>Nuevo Usuario:</label><br>
+                    <input type="text" id="newUsername" placeholder="Nuevo Usuario"><br><br>
+                    <label>Nuevo Correo:</label><br>
+                    <input type="email" id="newEmail" placeholder="Nuevo Correo"><br><br>
+                    <button type="submit" class="btn">Actualizar</button>
+                </form>`
+            );
+
+            document.getElementById('updateForm').addEventListener('submit', async (e) => {
+                e.preventDefault();
+                const token = localStorage.getItem('token');
+                const name = document.getElementById('newName').value;
+                const username = document.getElementById('newUsername').value;
+                const email = document.getElementById('newEmail').value;
+
+                const response = await fetch('/perfil', {
+                    method: 'PUT',
+                    headers: {
+                        'Authorization': `Bearer ${token}`,
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ name, username, email })
+                });
+
+                const data = await response.json();
+                if (response.ok) {
+                    closeModal();
+                    showAlert('Perfil actualizado con éxito', 'success');
+                } else {
+                    showAlert(data.error, 'error');
+                }
+            });
+        });
+
+        document.getElementById('deleteUserBtn').addEventListener('click', async () => {
+            openModal(
+                'Eliminar Cuenta',
+                `<p>¿Estás seguro de eliminar tu cuenta? Esta acción no se puede deshacer.</p>
+                <button id="confirmDeleteBtn" class="btn danger">Eliminar</button>`
+            );
+
+            document.getElementById('confirmDeleteBtn').addEventListener('click', async () => {
+                const token = localStorage.getItem('token');
+                const response = await fetch('/eliminar', {
+                    method: 'DELETE',
+                    headers: { 'Authorization': `Bearer ${token}` }
+                });
+
+                const data = await response.json();
+                if (response.ok) {
+                    localStorage.removeItem('token');
+                    closeModal();
+                    showAlert('Cuenta eliminada correctamente.', 'success');
+                } else {
+                    showAlert(data.error, 'error');
+                }
+            });
+        });
+
+        document.getElementById('logoutBtn').addEventListener('click', async () => {
+            const token = localStorage.getItem('token');
+            const response = await fetch('/logout', {
+                method: 'POST',
+                headers: { 'Authorization': `Bearer ${token}` }
+            });
+
+            if (response.ok) {
+                localStorage.removeItem('token');
+                showAlert('Cierre de sesión exitoso.', 'success');
+            } else {
+                showAlert('Error al cerrar sesión.', 'error');
+            }
+        });
+
+        function openModal(title, body) {
+            const modal = document.getElementById('modal');
+            document.getElementById('modalTitle').textContent = title;
+            document.getElementById('modalBody').innerHTML = body;
+            modal.style.display = 'flex';
+
+            document.getElementById('closeModal').addEventListener('click', closeModal);
+        }
+
+        function closeModal() {
+            document.getElementById('modal').style.display = 'none';
+        }
+
+        function showAlert(message, type) {
+            const alertDiv = document.createElement('div');
+            alertDiv.className = `alert ${type}`;
+            alertDiv.textContent = message;
+
+            const container = document.querySelector('.container');
+            container.insertBefore(alertDiv, container.firstChild);
+
+            setTimeout(() => alertDiv.remove(), 3000);
+        }
+
+
+    </script>
+</body>
+</html>

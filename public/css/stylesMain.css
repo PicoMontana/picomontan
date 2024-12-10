@@ -1,0 +1,58 @@
+/* Estilo para el contenedor de cada producto */
+.producto {
+    border: 1px solid #fdfdfd; /* Bordes grises claros para separar visualmente cada producto */
+    border-radius: 8px; /* Bordes redondeados para un diseño más moderno */
+    padding: 15px; /* Espaciado interno para separar el contenido del borde */
+    margin: 15px; /* Espaciado externo para separar cada producto entre sí */
+    overflow: hidden; /* Asegura que el contenido no se desborde */
+    background-color: #6dd3ec; /* Fondo blanco para resaltar el producto */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave para dar efecto de elevación */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Animación suave para hover */
+  }
+  
+  /* Animación al pasar el cursor sobre un producto */
+  .producto:hover {
+    transform: scale(1.05); /* Aumenta ligeramente el tamaño */
+    box-shadow: 0 6px 12px rgba(92, 238, 8, 0.911); /* Aumenta la sombra para mayor énfasis */
+  }
+  
+  /* Estilo para las imágenes dentro de los productos */
+  .producto img {
+    display: block; /* Asegura que la imagen se comporte como un bloque */
+    margin: 0 auto 10px; /* Centra la imagen horizontalmente y añade un margen inferior */
+    max-width: 200px; /* La imagen se ajusta al ancho del contenedor */
+    height: 200px; /* Altura fija para uniformidad */
+    object-fit: cover; /* Recorta y ajusta la imagen sin distorsión */
+    border-radius: 5px; /* Bordes redondeados para las imágenes */
+    transition: transform 0.3s ease; /* Animación suave al pasar el cursor */
+  }
+  
+  /* Animación al pasar el cursor sobre la imagen */
+  .producto img:hover {
+    transform: scale(1.1); /* Aumenta ligeramente el tamaño de la imagen */
+  }
+  
+  /* Estilo para los títulos de los productos */
+  .producto h3 {
+    margin-top: 10px; /* Espaciado superior para separar del contenido anterior */
+    font-size: 1.5em; /* Tamaño de fuente más destacado */
+    color: #000000; /* Texto oscuro para mayor legibilidad */
+    text-align: center; /* Centra el texto */
+  }
+  
+  /* Contenedor para organizar los productos en fila */
+  .productos-row {
+    display: flex; /* Usa Flexbox para organizar los productos */
+    flex-wrap: wrap; /* Permite que los productos se envuelvan si no caben en una fila */
+    justify-content: space-evenly; /* Espacia uniformemente los productos */
+    gap: 20px; /* Espacio entre productos */
+    margin-top: 20px; /* Espaciado superior del contenedor */
+  }
+  /* Contenedor de productos */
+  #container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    padding: 1rem;
+    justify-content: center;
+  }

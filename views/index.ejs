@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <link rel="stylesheet" type="text/css" href="/css/stylesIndex.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+
+    <header>
+        <img src="/img/logopm.png" alt="logo">
+        <h1>BIENVENIDO A PICOMONTAÑA: ADMIN</h1>
+        <H3>Selecciona tus mejores promociones y publicalas desde este sitio web</H3>
+    </header>
+
+    <nav>
+        <div class="nav-links">
+            <a href="/usuario/user">Inicio</a>
+            <a href="/clientes">Clientes</a>
+            <a href="/productos/productos">Produtos</a>
+        </div>
+        <div class="login-container">
+            <a href="/perfiles" class="login-link">Cuenta</a>
+        </div>
+    </nav>
+
+    <!-- Nueva sección de contacto con íconos -->
+    <div class="section" id="contact">
+        <h2>Contáctanos</h2>
+        <div class="contact">
+            <a href="https://wa.me/1234567890" target="_blank"><i class="fab fa-whatsapp"></i></a>
+            <!-- Ícono de WhatsApp -->
+            <a href="https://www.facebook.com/tu_pagina" target="_blank"><i class="fab fa-facebook-f"></i></a>
+            <!-- Ícono de Facebook -->
+            <a href="mailto:tuemail@ejemplo.com"><i class="fas fa-envelope"></i></a> <!-- Ícono de Email -->
+        </div>
+    </div>
+    <main>
+        <%- include('main.ejs') %>
+    </main>
+
+</body>
+</html>

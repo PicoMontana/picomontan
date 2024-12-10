@@ -1,0 +1,278 @@
+/* Estilos generales */
+body {
+    font-family: 'Times New Roman', Times, serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(to right, #25523d, #33fd00);
+    color: #333;
+  }
+  
+  /* Encabezado */
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    background-color: #5d6b7a;
+    color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Iconos de la barra */
+  .icons {
+    display: flex;
+    gap: 1rem;
+  }
+  
+  .icons div {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+  }
+  
+  .icons div:hover {
+    transform: scale(1.1);
+  }
+  
+  /* Contenedor de productos */
+  #container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    padding: 1rem;
+    justify-content: center;
+  }
+  
+  /* Tarjetas de productos */
+  .producto {
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 1rem;
+    width: 250px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .producto img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+  }
+  
+  /* Efecto hover en producto */
+  .producto:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Botones */
+  button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 0.5rem 0;
+    transition: background-color 0.3s ease;
+  }
+  
+  button:hover {
+    background-color: #ff0000;
+  }
+  
+  /* Pie de página */
+  footer {
+    text-align: center;
+    padding: 1rem;
+    background-color: #000000;
+    color: white;
+  }
+  
+  /* Estilos de los modales */
+  .modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    animation: fadeIn 0.3s ease-in-out;
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  
+  .modal-content {
+    background: linear-gradient(135deg, #ff0000, #a07b7b);
+    padding: 30px;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 400px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    animation: scaleUp 0.3s ease-in-out;
+    text-align: center;
+  }
+  
+  @keyframes scaleUp {
+    from {
+      transform: scale(0.8);
+    }
+    to {
+      transform: scale(1);
+    }
+  }
+  
+  .modal-content h2 {
+    font-size: 1.8em;
+    margin-bottom: 20px;
+    color: #ffffff;
+  }
+  
+  .modal-content ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 10px 0;
+  }
+  
+  .modal-content li {
+    background: #1c2e33;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    color: #ffffff;
+  }
+  
+  /* Botón de cierre */
+  .close {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 40px;
+    cursor: pointer;
+    color: #ffffff;
+    transition: color 0.2s ease;
+  }
+  
+  .close:hover {
+    color: #ff0000;
+  }
+  
+  /* Estilo del formulario de compra */
+  form#form-compra {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  form#form-compra label {
+    font-size: 1em;
+    font-weight: bold;
+    color: #000000;
+  }
+  
+  form#form-compra input {
+    padding: 10px;
+    border: 1px solid #68faff;
+    border-radius: 5px;
+    font-size: 1em;
+    outline: none;
+    transition: border-color 0.3s;
+  }
+  
+  form#form-compra input:focus {
+    border-color: #7891ac;
+  }
+  
+  form#form-compra button {
+    padding: 12px;
+    background: #00ff4c;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.1em;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+  
+  form#form-compra button:hover {
+    background: #ff0000;
+  }
+  
+  /* Notificaciones */
+  .notification {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 10px 20px;
+    background-color: #28a745;
+    color: white;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    font-size: 1em;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    z-index: 9999;
+  }
+  
+  .notification.error {
+    background-color: #dc3545;
+  }
+  
+  .notification.success {
+    background-color: #28a745;
+  }
+  
+  .notification.show {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  
+  .notification.hide {
+    transform: translateY(-20px);
+    opacity: 0;
+  }
+  
+  /* Animación para notificación */
+  @keyframes notificationFadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  
+  @keyframes notificationFadeOut {
+    from {
+      opacity: 1;
+    }
+    to {
+      opacity: 0;
+    }
+  }
+
+a  {
+    background-color: #fc0909;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 0.5rem 0;
+    transition: background-color 0.3s ease;
+  }
+  

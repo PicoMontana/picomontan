@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tienda PM</title>
+  <link rel="stylesheet" href="/css/styilosprod.css">
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script defer src="app.js"></script>
+</head>
+<body>
+  <header>
+    <h1>BIENVENIDO A PICO MONTAÑA PROMOCIONES</h1>
+    <div class="icons">
+      <div id="carrito">
+        <span>🛒</span>
+        <span id="carrito-count">0</span>
+      </div>
+      <div id="favoritos">
+        <span>❤️</span>
+        <span id="favoritos-count">0</span>
+      </div>
+    </div>
+  </header>
+
+    <main>
+    <%- include('main.ejs') %>
+    </main>
+    <!-- Modal del carrito -->
+    <div id="modal-carrito" class="modal">
+    <div class="modal-content">
+      <span class="close" id="close-carrito">&times;</span>
+      <h2>PAQUETES AGREGADOS</h2>
+      <ul id="carrito-list"></ul>
+      <button id="comprar-desde-carrito">COMPRAR AHORA</button>
+    </div>
+    </div>
+  
+    <!-- Modal de favoritos -->
+    <div id="modal-favoritos" class="modal">
+        <div class="modal-content">
+        <span class="close" id="close-favoritos">&times;</span>
+        <h2>PRODUCTOS AGREGADOS A FAVORITOSs</h2>
+        <ul id="favoritos-list"></ul>
+        </div>
+    </div>
+  
+    <!-- Formulario emergente para la compra -->
+    <div id="modal-compra" class="modal">
+        <div class="modal-content">
+        <span class="close" id="close-compra">&times;</span>
+        <h2>Formulario de Compra</h2>
+        <form id="form-compra">
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre" name="nombre" required>
+            <label for="correo">Correo:</label>
+            <input type="text" id="correo" name="correo" required>
+            <label for="phone">Número de teléfono (fijo y móvil):</label>
+            <input type="text" id="phone" name="phone" required>
+            <label for="direccion">Dirección:</label>
+            <input type="text" id="direccion" name="direccion" required>
+            <label for="paymentMethod">Métodos de pago:</label>
+            <select id="paymentMethod" name="paymentMethod" required>
+                <option value="tarjeta">Tarjeta de crédito</option>
+                <option value="efectivo">Pago en efectivo</option>
+                <option value="otros">Otros métodos de pago</option>
+            </select>
+            <label for="cantidad">Cantidad:</label>
+            <input type="number" id="cantidad" name="cantidad" min="1" required>
+            <button type="submit">Completar Compra</button>
+        </form>
+        </div>
+    </div>
+
+    <a href="/usuario/user">VOLVER</a>
+  
+        <footer>
+            <p>&copy; 2024 Tienda PICO MONTAÑA</p>
+        </footer>
+    <script src="/js/script11.js"></script>
+</body>
+</html>

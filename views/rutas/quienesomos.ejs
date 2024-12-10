@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quienes-Somos</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Enlace a Font Awesome -->
+    <style>
+        body {
+            font-family: 'Times New Roman', Times, serif;
+            /* Fuente Times New Roman */
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to right, #4A90E2, #9B59B6);
+            /* Degradado de azul a morado */
+            height: 100vh;
+            /* Altura completa de la ventana */
+        }
+
+        /* Estilos del menú */
+        .navbar {
+            background-color: hwb(182 38% 23%);
+            color: white;
+            padding: 15px;
+            position: fixed;
+            /* Fijo en la parte superior */
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            /* Asegura que esté por encima de otros elementos */
+            transition: background-color 0.3s, padding 0.3s;
+            /* Transición suave */
+        }
+
+        .navbar.scrolled {
+            background-color: #5cdafa;
+            /* Color de fondo al desplazarse */
+            padding: 10px;
+            /* Reduce el padding al desplazarse */
+        }
+
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 15px;
+            display: inline-block;
+        }
+
+        .navbar a:hover {
+            background-color: #406168;
+            /* Color de fondo al pasar el mouse */
+        }
+
+        /* Estilos del menú desplegable */
+        .dropdown {
+            position: relative;
+            /* Necesario para posicionar el contenido del menú desplegable */
+            display: inline-block;
+            /* Permite que el menú desplegable esté en línea con otros elementos */
+        }
+
+        .dropdown-content {
+            display: none;
+            /* Oculta el contenido del menú desplegable por defecto */
+            position: absolute;
+            /* Posiciona el menú desplegable en relación al elemento padre */
+            background-color: #f9f9f9;
+            /* Color de fondo del menú desplegable */
+            min-width: 160px;
+            /* Ancho mínimo del menú desplegable */
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            /* Sombra para el menú desplegable */
+            z-index: 1;
+            /* Asegura que el menú desplegable esté por encima de otros elementos */
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+            /* Muestra el contenido del menú desplegable al pasar el mouse */
+        }
+
+        .dropdown-content a {
+            color: black;
+            /* Color del texto en el menú desplegable */
+            padding: 12px 16px;
+            /* Espaciado interno */
+            text-decoration: none;
+            /* Elimina el subrayado */
+            display: block;
+            /* Hace que cada enlace ocupe toda la línea */
+        }
+
+        .dropdown-content a:hover {
+            background-color: #f1f1f1;
+            /* Color de fondo al pasar el mouse sobre los enlaces del menú desplegable */
+        }
+
+        /* Estilos del contenido */
+        .content {
+            padding: 100px 20px;
+            /* Espacio para el menú fijo */
+        }
+
+        h1 {
+            margin-top: 0;
+        }
+
+        /* Estilos para simular contenido */
+        .section {
+            height: auto;
+            /* Altura de las secciones para simular contenido */
+            margin: 20px 0;
+            background-color: #f8f8f8;
+            border: 1px solid #303030;
+            padding: 20px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            /* Sombra sutil */
+            border-radius: 8px;
+            /* Bordes redondeados */
+        }
+
+        /* Estilos para la sección de contacto */
+        .contact {
+            display: flex;
+            justify-content: center;
+            /* Centra los íconos */
+            margin-top: 20px;
+        }
+
+        .contact a {
+            margin: 0 10px;
+            /* Espaciado entre íconos */
+            font-size: 30px;
+            /* Tamaño de los íconos */
+            color: #333;
+            /* Color de los íconos */
+            transition: color 0.3s;
+            /* Transición suave para el color */
+        }
+
+        .contact a:hover {
+            color: #007bff;
+            /* Color al pasar el mouse */
+        }
+
+
+        h2 {
+            font-size: 24px;
+            /* Tamaño de fuente para el título */
+            text-align: center;
+            /* Centra el título */
+            margin-bottom: 10px;
+            /* Margen inferior */
+        }
+
+        h3 {
+            font-size: 18px;
+            /* Tamaño de fuente para el subtítulo */
+            text-align: justify;
+            /* Justifica el texto */
+            margin-bottom: 20px;
+            /* Margen inferior */
+        }
+
+        /* Estilos para las imágenes */
+        img {
+            display: inline-block;
+
+            width: 390px;
+            /* Ancho del contenedor */
+            height: 300px;
+            /* Alto del contenedor */
+            overflow: hidden;
+            /* Oculta cualquier parte de la imagen que sobresalga */
+            margin: 10px;
+            /* Espaciado entre las imágenes */
+            border: 2px solid #ccc;
+            /* Borde para visualizar el contenedor */
+            align-items: center;
+            /* Centra verticalmente la imagen */
+            justify-content: center;
+            /* Centra horizontalmente la imagen */
+        }
+
+        /* Estilo para la galería */
+        .gallery {
+
+            max-width: 100%;
+            /* La imagen no excederá el ancho del contenedor */
+            max-height: 100%;
+            /* La imagen no excederá la altura del contenedor */
+            object-fit: cover;
+            /* Cubre el área especificada */
+        }
+
+        .gallery img {
+            transition: transform 0.3s;
+            /* Transición suave */
+        }
+
+        .gallery img:hover {
+            transform: scale(1.1);
+            /* Aumenta el tamaño al pasar el mouse */
+        }
+
+        ul {
+            list-style-type: disc;
+            /* Estilo de lista */
+            margin: 20px;
+            /* Margen */
+            padding: 0;
+            /* Sin padding */
+        }
+
+        li {
+            margin-bottom: 10px;
+            /* Espaciado entre elementos de la lista */
+        }
+        h1 {
+            color: #333;
+            text-align: center;
+        }
+
+        form {
+            background: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            max-width: 500px;
+            margin: 20px auto;
+        }
+
+        label {
+            font-weight: bold;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        input[type="text"], 
+        textarea, 
+        select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-sizing: border-box;
+            transition: border-color 0.3s;
+        }
+
+        input[type="text"]:focus, 
+        textarea:focus, 
+        select:focus {
+            border-color: #007BFF;
+            outline: none;
+        }
+
+        button {
+            background-color: #007BFF;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        .recommendation {
+            background: #ffffff;
+            margin-top: 10px;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .recommendation strong {
+            color: #007BFF;
+        }
+
+        .recommendation p {
+            margin: 5px 0 0;
+            color: #555;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="navbar" id="navbar">
+        <a href="/prom">Productos</a>
+        <div class="dropdown">
+            <a href="#section2" class="dropbtn">Contenido</a>
+            <div class="dropdown-content">
+                <a href="/Agent">Agencias</a>
+                <a href="/Hotel">Hoteles</a>
+                <a href="/restaurante">Restaurantes</a>
+            </div>
+        </div>
+        <div class="dropdown">
+            <a href="#section3">Alta Montaña</a>
+            <div class="dropdown-content">
+                <a href="/produc1">Promociones</a>
+            </div>
+        </div>
+        <a href="/login">Login</a>
+    </div>
+
+    <div class="content">
+        <h1>Asciende a nuevas alturas: Descubre la magia de las montañas colombianas</h1>
+        <div class="section" id="section1">
+            <h2>Vive aventuras inolvidables en los paisajes más impresionantes de Colombia.</h2>
+            <h3>Colombia, un país de contrastes, te invita a explorar sus majestuosas montañas. Desde los nevados de los
+                Andes hasta las serranías de la Costa, nuestro país te ofrece una diversidad de paisajes que te dejarán
+                sin aliento. Sumérgete en la naturaleza, desafía tus límites y descubre la belleza de la alta montaña.
+            </h3>
+            <div class="gallery">
+                <img src="/img/guia-4.jfif" alt="ilustracion">
+                <img src="/img/guia-5.avif" alt="ilustracion">
+                <img src="/img/guia-6.avif" alt="ilustracion">
+            </div>
+        </div>
+        <h1>Lugares a donde puedes ir de vacaciones con tu familia</h1>
+        <div class="section" id="section2">
+            <h2>Destinos donde puedes ir hacer trekking: Nevado del Tolima</h2>
+            <h3>El Nevado del Tolima, uno de los volcanes más activos de Colombia, es un destino imperdible para los
+                amantes de la alta montaña. Su imponente cono volcánico, sus glaciares y sus lagunas de origen glaciar
+                ofrecen un paisaje único y desafiante.
+                <br>
+                El Nevado del Tolima, un imponente volcán activo ubicado en la Cordillera Central de Colombia, es un
+                destino imperdible para los amantes de la alta montaña. Con sus glaciares, lagunas de origen glaciar y
+                paisajes volcánicos, este coloso natural ofrece una experiencia única para los aventureros.
+            </h3>
+            <h4>¿Qué hacer en el Nevado del Tolima?</h4>
+            <ul>
+                <li><strong>Ascenso a la cumbre:</strong> Para los más experimentados, la ascensión a la cumbre es un
+                    desafío que recompensa con vistas panorámicas espectaculares.</li>
+                <li><strong>Senderismo:</strong> Diversas rutas de senderismo permiten explorar los alrededores del
+                    volcán, sus lagunas y bosques de niebla.</li>
+                <li><strong>Camping:</strong> Disfruta de una noche bajo las estrellas en uno de los campamentos
+                    establecidos.</li>
+                <li><strong>Observación de aves:</strong> El Nevado del Tolima es el hogar de una gran variedad de aves,
+                    especialmente cóndores.</li>
+                <li><strong>Aguas termales:</strong> Relájate en las aguas termales naturales ubicadas en las faldas del
+                    volcán.</li>
+            </ul>
+            <h3><strong>Mejor época para visitar:</strong>La temporada seca, entre los meses de diciembre y marzo, es la
+                mejor época para visitar el Nevado del Tolima. Sin embargo, es importante tener en cuenta que las
+                condiciones climáticas en la alta montaña pueden cambiar rápidamente.
+            </h3>
+            <div class="gallery">
+                <img src="/img/nevado1.jfif" alt="ilustracion">
+                <img src="/img/nevado2.jfif" alt="ilustracion">
+                <img src="/img/nevado3.jfif" alt="ilustracion">
+            </div>
+        </div>
+        <h1>En esta Plataforma encontraras tus destinos favoritos</h1>
+        <div class="section" id="subsection1">
+            <h2>Sierra Nevada de Santa Marta: La montaña costera más alta del mundo</h2>
+            <h3>La Sierra Nevada de Santa Marta, ubicada en el norte de Colombia, es una maravilla natural que alberga
+                una biodiversidad única en el mundo. Esta montaña costera, la más alta del mundo, es el hogar de
+                comunidades indígenas ancestrales que han vivido en armonía con la naturaleza durante siglos. Sus picos
+                nevados, sus bosques nublados y sus playas paradisíacas la convierten en un destino imperdible para los
+                amantes de la aventura y la naturaleza.</h3>
+            <h1>10 Razones para Viajar a la Sierra Nevada de Santa Marta</h1>
+            <ul>
+                <li>
+                    <strong>Biodiversidad Únicas</strong>
+                    La Sierra Nevada de Santa Marta es uno de los lugares más biodiversos del mundo. Alberga una gran
+                    variedad de ecosistemas, desde selvas tropicales hasta páramos. Aquí puedes encontrar especies
+                    endémicas de flora y fauna, como el oso de anteojos y el cóndor de los Andes. La riqueza
+                    biológica de la región la convierte en un destino ideal para los amantes de la naturaleza y la
+                    observación de aves.
+                </li>
+                <li>
+                    <strong>Cultura Indígenas</strong>
+                    La Sierra Nevada es hogar de varias comunidades indígenas, como los Koguis, Arhuacos y Wiwas.
+                    Estas comunidades mantienen vivas sus tradiciones ancestrales y ofrecen una perspectiva única
+                    sobre la relación entre el ser humano y la naturaleza. Viajar a la Sierra te brinda la
+                    oportunidad de aprender sobre sus costumbres, su cosmovisión y su forma de vida sostenible.
+                </li>
+                <li>
+                    <strong>Senderismo y Trekking</strong>
+                    La Sierra Nevada ofrece una variedad de rutas de senderismo que van desde caminatas cortas hasta
+                    expediciones de varios días. El trekking hacia la Ciudad Perdida, una antigua ciudad indígena,
+                    es una de las experiencias más populares. Este recorrido no solo te permite disfrutar de
+                    paisajes impresionantes, sino que también te conecta con la historia y la cultura de la región.
+                </li>
+                <li>
+                    <strong>Paisajes Espectaculares</strong>
+                    Los paisajes de la Sierra Nevada son simplemente impresionantes. Desde montañas cubiertas de
+                    nieve hasta playas caribeñas, la diversidad de escenarios es asombrosa. Las vistas panorámicas
+                    desde los picos más altos, como el Pico Cristóbal Colón, son inolvidables y ofrecen
+                    oportunidades perfectas para la fotografía.
+                </li>
+                <li>
+                    <strong>Clima Variado</strong>
+                    La Sierra Nevada de Santa Marta cuenta con un clima variado que cambia a medida que asciendes.
+                    Desde el calor tropical en las zonas bajas hasta el frío en las cumbres nevadas, esta diversidad
+                    climática permite disfrutar de diferentes actividades y paisajes en un solo viaje. Es un lugar
+                    donde puedes experimentar múltiples climas en un corto período de tiempo.
+                </li>
+                <li>
+                    <strong>Cascadas y Ríos</strong>
+                    La región está salpicada de hermosas cascadas y ríos cristalinos. Lugares como la Cascada de La
+                    Chorrera y el río Buritaca son perfectos para refrescarse después de una caminata. Además,
+                    muchas de estas cascadas son ideales para nadar y disfrutar de un día de picnic en un entorno
+                    natural impresionante.
+                </li>
+                <li>
+                    <strong>Aventura y Deportes Extremos</strong>
+                    Para los amantes de la adrenalina, la Sierra Nevada ofrece una variedad de actividades de
+                    aventura, como escalada, rappel y tubing en ríos. Estas experiencias te permiten explorar la
+                    belleza natural de la región de una manera emocionante y única, ideal para quienes buscan un
+                    poco más de acción en su viaje.
+                </li>
+                <li>
+                    <strong>Gastronomía Local</strong>
+                    La Sierra Nevada de Santa Marta es también un destino gastronómico. Puedes disfrutar de platos
+                    típicos de la región, que combinan ingredientes locales frescos y sabores autóctonos. No te
+                    pierdas la oportunidad de probar el "sancocho", un delicioso caldo tradicional, y otros platos
+                    que reflejan la rica cultura culinaria de la zona.
+                </li>
+                <li>
+                    <strong>Conexión Espiritual</strong>
+                    La Sierra Nevada es considerada un lugar sagrado por las comunidades indígenas. La conexión
+                    espiritual que se siente en la región es profunda, y muchos visitantes reportan una sensación de
+                    paz y armonía al estar rodeados de la naturaleza. Es un lugar ideal para la meditación, la
+                    reflexión y la desconexión del estrés cotidiano.
+                </li>
+                <li>
+                    <strong>Playas Paradisíacas</strong>
+                    Al pie de la Sierra Nevada se encuentran algunas de las playas más hermosas de Colombia, como
+                    Tayrona y Palomino. Estas playas ofrecen un contraste perfecto con las montañas y son ideales
+                    para relajarse, practicar deportes acuáticos o simplemente disfrutar del sol y la arena. La
+                    cercanía a la costa caribeña hace que tu viaje sea aún más completo.
+                </li>
+            </ul>
+
+            <div class="gallery">
+                <img src="/img/guia,1.jfif" alt="ilustracion">
+                <img src="/img/guia-8.jpg" alt="ilustracion">
+                <img src="/img/guia-9.jpg" alt="ilustracion">
+            </div>
+        </div>
+        <h1>Bienvenido a Pico-Montaña: Tu Puerta de Entrada a la Aventura en los Nevados de Colombia</h1>
+        <div class="section" id="section3">
+            <h3>En Pico-Montaña, entendemos que la vida está llena de momentos que merecen ser vividos al
+                máximo. Si eres un amante de la naturaleza, un aventurero en busca de nuevas experiencias o simplemente
+                alguien que desea escapar de la rutina diaria, has llegado al lugar indicado. Nuestra plataforma está
+                diseñada especialmente para ofrecerte recorridos y servicios de turismo de alta montaña en los
+                impresionantes nevados de Colombia.</h3>
+            <h2>¿Por qué elegirnos?</h2>
+            <ul>
+                <li><strong>Experiencias Personalizadas :</strong>Sabemos que cada viajero es único. Por eso, ofrecemos
+                    una variedad de paquetes turísticos adaptados a tus intereses y necesidades. Ya sea que busques un
+                    trekking desafiante, una expedición fotográfica o una escapada tranquila para disfrutar de la
+                    naturaleza, tenemos algo para ti. Nuestros guías expertos están listos para personalizar tu
+                    experiencia y asegurarse de que cada momento sea inolvidable.</li>
+            </ul>
+            <ul>
+                <li><strong>Expertos en Alta Montaña :</strong>Nuestro equipo está compuesto por guías locales altamente
+                    capacitados y apasionados por la montaña. Con años de experiencia en el terreno, conocen cada rincón
+                    de los nevados colombianos y están comprometidos a brindarte una experiencia segura y enriquecedora.
+                    No solo te llevarán a los mejores lugares, sino que también compartirán contigo su conocimiento
+                    sobre la flora, fauna y cultura de la región.</li>
+            </ul>
+            <ul>
+                <li><strong>Compromiso con la Sostenibilidad :</strong>En Pico-Montaña, creemos en el turismo
+                    responsable. Nos esforzamos por minimizar nuestro impacto ambiental y promover prácticas sostenibles
+                    en todas nuestras actividades. Al elegir nuestros servicios, no solo disfrutarás de la belleza
+                    natural de los nevados, sino que también contribuirás a la conservación de estos ecosistemas únicos.
+                </li>
+            </ul>
+            <ul>
+                <li><strong>Variedad de Servicios :</strong>Nuestra plataforma no solo ofrece recorridos guiados, sino
+                    también una gama de servicios complementarios que mejoran tu experiencia. Desde alquiler de equipos
+                    de montaña hasta asesoría en la planificación de tu viaje, estamos aquí para ayudarte en cada paso
+                    del camino. Además, ofrecemos paquetes que incluyen alojamiento, transporte y comidas, para que
+                    puedas concentrarte en disfrutar de tu aventura.</li>
+            </ul>
+            <ul>
+                <li><strong>Instalación de Reserva :</strong>Sabemos que planificar un viaje puede ser abrumador. Por
+                    eso, hemos diseñado nuestra página web para que sea intuitiva y fácil de usar. Con solo unos clics,
+                    podrás explorar nuestros paquetes, leer testimonios de otros viajeros y realizar tu reserva de
+                    manera rápida y segura. Nuestro equipo de atención al cliente está siempre disponible para resolver
+                    cualquier duda que pueda tener.</li>
+            </ul>
+            <div class="logo">
+                <img src="/img/logopm.png" alt="logo">
+                <img src="/img/guia,2.jfif" alt="logo">
+                <img src="/img/guia,3.jpg" alt="logo">
+            </div>
+        </div>
+        <div class="section" id="subsection2">
+            <h2>¿Qué puedes esperar de nuestros recorridos?</h2>
+            <h3>Al elegir Pico-Montaña, te embarcarás en una aventura que te llevará a los majestuosos nevados
+                de Colombia, donde podrás disfrutar de paisajes impresionantes, respirar aire puro y conectarte con la
+                naturaleza de una manera que nunca imaginaste. Desde el Parque Nacional Natural Los Nevados hasta el
+                Nevado del Ruiz, cada destino ofrece una experiencia única que te dejará con recuerdos imborrables. <br>
+                Imagina caminar por senderos rodeados de montañas cubiertas de nieve, explorar lagunas cristalinas y
+                descubrir la rica biodiversidad que habita en estos ecosistemas. Ya sea que busques la emoción de
+                escalar un pico o la tranquilidad de un paseo por la naturaleza, nuestros recorridos están diseñados
+                para satisfacer tus deseos y superar tus expectativas.
+            </h3>
+            <h4>En pico-Montaña nos enfocamos en satisfacer las necesidades de nuestros clientes, por eso te brindamos
+                paquetes turisricos para relaizar tus recoriido a cualquier lugar de Colombia, ya sea para realizar
+                turismo en alta montaña como tambien visitar lugares de tu preferencia, revuerda que en Colombia no solo
+                encuentras tus sueños en las montañas, tambien existen lugares diferentes como parques tematicos,
+                cascadas, reservas y biodivercidad, cerros, islas entre muchos otros mas.</h4>
+
+            <h4>tambien te ofrecemos la opcion de agendar tu propio recorrido, ofreciendote una gran cantidad de agencias, 
+                hoteles y restaurantes recomendados para tu mayor comodidad por si lo tuyo no es el trekking</h4>
+        </div>
+        
+        <h1>Deja tu Recomendación</h1>
+        <form id="recommendationForm">
+            <label for="username">Nombre:</label>
+            <input type="text" id="username" required>
+            
+            <label for="recommendation">Recomendación:</label>
+            <textarea id="recommendation" required></textarea>
+            
+            <label for="rating">Calificación:</label>
+            <select id="rating" required>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+            </select>
+            
+            <button type="submit">Enviar</button>
+        </form>
+
+        <div id="recommendationsList"></div>
+
+        <!-- Nueva sección de contacto con íconos -->
+        <div class="section" id="contact">
+            <h2>Contáctanos</h2>
+            <div class="contact">
+                <a href="https://wa.me/1234567890" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                <!-- Ícono de WhatsApp -->
+                <a href="https://www.facebook.com/tu_pagina" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                <!-- Ícono de Facebook -->
+                <a href="mailto:tuemail@ejemplo.com"><i class="fas fa-envelope"></i></a> <!-- Ícono de Email -->
+            </div>
+        </div>
+
+    </div>
+    <script>
+        document.getElementById('recommendationForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const username = document.getElementById('username').value;
+            const recommendation = document.getElementById('recommendation').value;
+            const rating = document.getElementById('rating').value;
+
+            const recommendationsList = document.getElementById('recommendationsList');
+            const newRecommendation = document.createElement('div');
+            newRecommendation.className = 'recommendation';
+            newRecommendation.innerHTML = `<strong>${username}</strong> (Calificación: ${rating}): <p>${recommendation}</p>`;
+            recommendationsList.appendChild(newRecommendation);
+
+            this.reset(); // Reiniciar el formulario
+        });
+    </script>
+
+    <script>
+        // Selección del menú
+        const navbar = document.getElementById('navbar');
+
+        // Evento de desplazamiento
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled'); // Agrega clase al desplazarse
+            } else {
+                navbar.classList.remove('scrolled'); // Elimina clase al volver arriba
+            }
+        });
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,135 @@
+/* Estilos generales para el cuerpo */
+body {
+    margin: 0; /* Elimina el margen predeterminado del navegador */
+    padding: 0; /* Elimina el relleno predeterminado del navegador */
+    font-family: Georgia, 'Times New Roman', Times, serif; /* Establece la fuente Times New Roman */
+    background: linear-gradient(120deg, #00f05c, #0186c4c2); /* Fondo con gradiente llamativo */
+    background-size: 200% 200%; /* Amplía el fondo para la animación */
+    animation: gradientBackground 6s ease infinite; /* Aplica una animación de gradiente infinito */
+  }
+  
+  /* Animación del fondo */
+  @keyframes gradientBackground {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+  
+  /* Encabezado principal */
+  header {
+    position: relative; /* Permite posicionar elementos dentro del encabezado */
+    text-align: center; /* Centra el texto horizontalmente */
+    color: #000000; /* Texto en un tono oscuro */
+    padding: 20px; /* Espaciado interno */
+  }
+  
+  /* Estilo para el logo */
+  header img {
+    position: absolute; /* Posiciona la imagen de forma independiente del flujo normal */
+    top: -10px; /* Se sitúa a 10px del borde superior */
+    left: 10px; /* Se sitúa a 10px del borde izquierdo */
+    max-width: 100px; /* Define un tamaño máximo para evitar que sea muy grande */
+    animation: fadeIn 2s ease; /* Añade una animación de aparición suave */
+  }
+  
+  /* Animación para elementos que se desvanecen al aparecer */
+  @keyframes fadeIn {
+    from { opacity: 0; } /* Inicia invisible */
+    to { opacity: 1; } /* Termina completamente visible */
+  }
+  
+  /* Estilo del texto del encabezado */
+  header h1 {
+    margin: 0; /* Elimina márgenes superiores e inferiores */
+    font-size: 2.5em; /* Define un tamaño de letra grande */
+    text-transform: uppercase; /* Convierte el texto a mayúsculas */
+    animation: slideIn 1.5s ease; /* Añade una animación de entrada desde la izquierda */
+  }
+  
+  header h3 {
+    margin: 10px 0 0; /* Añade margen superior e inferior al subtítulo */
+    font-size: 1.2em; /* Tamaño ligeramente más pequeño que el título */
+    animation: slideIn 1.5s ease; /* Aplica la misma animación */
+  }
+  
+  /* Animación para deslizamiento de texto */
+  @keyframes slideIn {
+    from { transform: translateX(-100px); opacity: 0; } /* Inicia fuera del marco y transparente */
+    to { transform: translateX(0); opacity: 1; } /* Termina en posición normal y visible */
+  }
+  
+  /* Barra de navegación */
+  nav {
+    display: flex; /* Usa un diseño de flexbox */
+    justify-content: space-between; /* Espacia los elementos a los extremos */
+    align-items: center; /* Alinea los elementos verticalmente al centro */
+    background: rgba(206, 203, 203, 0.8); /* Fondo oscuro semitransparente */
+    color: #000000; /* Texto blanco */
+    padding: 20px 25px; /* Espaciado interno */
+    box-shadow: 0 4px 6px rgba(238, 7, 7, 0.2); /* Sombra para la barra de navegación */
+  }
+  
+  /* Enlaces de navegación */
+  .nav-links a {
+    margin: 0 15px; /* Espaciado horizontal entre enlaces */
+    text-decoration: none; /* Quita el subrayado */
+    color: #2e2b2b; /* Texto blanco */
+    font-size: 1em; /* Tamaño estándar */
+    transition: color 0.3s ease; /* Transición para un efecto de hover suave */
+  }
+  
+  .nav-links a:hover {
+    color: #a1c4fd; /* Cambia el color al pasar el cursor */
+  }
+  
+  /* Contenedor de login */
+  .login-container a {
+    background: #b8caa1e0; /* Fondo de color llamativo */
+    color: #f0f0f0; /* Texto blanco */
+    padding: 8px 15px; /* Espaciado interno */
+    border-radius: 5px; /* Bordes redondeados */
+    text-decoration: none; /* Quita el subrayado */
+    transition: background 0.3s ease; /* Transición suave para hover */
+  }
+  
+  .login-container a:hover {
+    background: #69575a; /* Color más oscuro al pasar el cursor */
+  }
+  
+  /* Área principal de contenido */
+  main {
+    padding: 20px; /* Espaciado interno */
+    animation: fadeIn 2s ease; /* Aplica una animación de aparición suave */
+  }
+  
+        /* Estilos para la sección de contacto */
+        .contact {
+          display: flex;
+          justify-content: center;
+          /* Centra los íconos */
+          margin-top: 20px;
+      }
+
+      .contact a {
+          margin: 0 10px;
+          /* Espaciado entre íconos */
+          font-size: 30px;
+          /* Tamaño de los íconos */
+          color: #333;
+          /* Color de los íconos */
+          transition: color 0.3s;
+          /* Transición suave para el color */
+      }
+
+      .contact a:hover {
+          color: #007bff;
+          /* Color al pasar el mouse */
+      }
+      h2 {
+          font-size: 24px;
+          /* Tamaño de fuente para el título */
+          text-align: center;
+          /* Centra el título */
+          margin-bottom: 10px;
+          /* Margen inferior */
+      }
